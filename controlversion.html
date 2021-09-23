@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ecomerce/login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+	<script src="/js/home.js"></script>
+
+
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+<!--===============================================================================================-->
+</head>
+<body style="background-image: none;" id="bd">
+	<div id="filter" style="display: none; background-color: black; opacity: 0.6; width: 100%; height: 100%; position: fixed; z-index: 150; " onclick="closedCart()"></div>
+	<div id="iframe"></div>
+    <div class="nav" >
+        <div class="logo"><a href="index.html"><img src="images/uni2.png" width="150" height="70"></a></div>
+		<div style="height: 100%; width: 40%; position: absolute; left: 20%; margin-top: 1.5%;">
+			<div class="input-group">
+				<input type="search" class="form-control rounded" id="search" placeholder="Busca aquí" aria-label="Search"
+				  aria-describedby="search-addon" />
+				<button type="button" class="btn btn-primary" onclick=" Inputsearch()">Buscar</button>
+			  </div>
+		</div>
+		
+        <div class="info">
+            
+            <div id="user" class="username">
+                
+            </div>
+			<div id="iniciar" style="color: aqua; font-size: 14px; cursor: pointer;" onclick="iniciar_sesion()">
+				iniciar sesión
+			 </div>
+            <div id="cerrar" style="color: aqua; font-size: 14px; cursor: pointer;" onclick="logout()">
+               Cerrar sesión
+            </div>
+        </div>
+        <div class="iconC" onclick="carrito()">
+            <img src="img/cart.png">
+			<div class="cart" id="cart"><div style="position: absolute; top: 1px; text-align: center; width: 100%;" id="count"></div></div>
+
+        </div>
+            
+    
+	<div class="categories" id="categories" >
+		<div class="form-check">Categorias: </div>
+		<div id="load"  style="color: red;">Cargando...</div>
+		<div id="error" style="color: red; display: none;">Error al cargar</div>
+		<form id="categoriesL">
+		</form>
+		
+
+	</div>
+
+	<div id="items_carts" class="itemscarts">
+		<div id="trajeta" class="ion-cart">
+			<div class="row">
+				<div class="col" id="producto"></div>
+				<div class="col-md-2" id="producto_info"></div>
+			</div>
+			<div style="width: 100%; height: 50px; padding-right: 50px;" id="Total"></div>
+		</div>
+	</div>
+
+	</div>
+	<div class="totalItems" >
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col" id="totalItems"></div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+	<div style=" padding: 14% 3% 0% 3%;" id="items">
+	</div>
+	<div id="loadItems" style="width: 100%; text-align: center; font-size: 22px; margin-top: 30px;">
+	
+		<p style="color:red; font-size: 30px;">Control de versiones:</p>
+		son software que ayudan a realizar un seguimiento de los cambios realizados en el código a lo largo del tiempo. A medida que un desarrollador edita el código, el sistema de control de versiones toma una instantánea de los archivos. A continuación, guarda esa instantánea de forma permanente para que se pueda recuperar más adelante si es necesario.
+
+		Sin control de versiones, los desarrolladores tienen la tentación de mantener varias copias de código en su equipo. Esto es peligroso porque es fácil cambiar o eliminar un archivo en una copia de código incorrecta, lo que podría perder trabajo. Los sistemas de control de versiones resuelven este problema administrando todas las versiones del código, pero presentando al equipo una sola versión a la vez.
+	
+	</div>
+	<div id="errorItem" style="color: red; display: none;">Error cargando los items.</div>
+	<div id="empty" style="width: 100%; text-align: center; font-size: 22px; margin-top: 30px; display: none;">Sin resultados</div>
+	
+
+
+    
+
+	
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+
+</body>
+</html>
